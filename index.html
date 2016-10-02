@@ -1,35 +1,28 @@
 <html>
 <head>
-  <title>A Leaflet map!</title>
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-  <style>
-    #map{ height: 100% }
-  </style>
+    <title>Simple Leaflet Map</title>
+    <meta charset="utf-8" />
+    <link 
+        rel="stylesheet" 
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+    />
 </head>
 <body>
+    <div id="map" style="width: 600px; height: 400px"></div>
 
- <div id="map"></div>
+    <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
 
-  <script>
-
-  // initialize the map
-  var map = L.map('map').setView([42.35, -71.08], 13);
-
-  // load a tile layer
-  L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-    {
-      attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-      maxZoom: 17,
-      minZoom: 9
-    }).addTo(map);
-
-  // add a marker
-  var marker = L.marker([42.35, -71.081]).addTo(map);
-  
-  //popup
-  marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-          
-  </script>
+    <script>
+        var map = L.map('map').setView([-41.2858, 174.78682], 14);
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; ' + mapLink,
+            maxZoom: 18,
+            }).addTo(map);
+    </script>
 </body>
 </html>
