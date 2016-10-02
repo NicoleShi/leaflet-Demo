@@ -25,29 +25,12 @@
     }).addTo(map);
 
   // add a marker
-  var marker = L.marker([42.35, -71.08]).addTo(map);
+  var marker = L.marker([42.35, -71.081]).addTo(map);
     
-  // add a circle
-  var circle = L.circle([42.35, -71.08], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500
-}).addTo(map);
-    
-   // add a polygon
-    var polygon = L.polygon([
-    [42.35, -71.08],
-    [42.35, -71.081],
-    [43.351, -71.081]
-]).addTo(map);
-    
-    //popup
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-    circle.bindPopup("I am a circle.");
-    polygon.bindPopup("I am a polygon.");
-    
-      
+  
+  //popup
+  marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+         
   </script>
 </body>
 </html>
