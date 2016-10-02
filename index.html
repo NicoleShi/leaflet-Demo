@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Marker Leaflet Map</title>
+    <title>Simple Leaflet Map</title>
     <meta charset="utf-8" />
     <link 
         rel="stylesheet" 
@@ -8,6 +8,7 @@
     />
 </head>
 <body>
+
     <div id="map" style="width: 600px; height: 400px"></div>
 
     <script
@@ -15,7 +16,10 @@
     </script>
 
     <script>
-        var map = L.map('map').setView([-41.2858, 174.78682], 14);
+	var planes = [
+		["7C6B07",-40.99497,174.50808],
+		];
+        var map = L.map('map').setView([-41.3058, 174.82082], 8);
         mapLink = 
             '<a href="http://openstreetmap.org">OpenStreetMap</a>';
         L.tileLayer(
@@ -23,15 +27,12 @@
             attribution: '&copy; ' + mapLink + ' Contributors',
             maxZoom: 18,
             }).addTo(map);
-        var marker = L.marker([-41.29042, 174.78219],
-            {draggable: true,        // Make the icon dragable
-            title: 'Hover Text',     // Add a title
-            opacity: 0.5}            // Adjust the opacity
-            )
-            .addTo(map)
-            .bindPopup("<b>Te Papa</b><br>Museum of New Zealand.")
-            .openPopup();
-        
+		for (var i = 0; i < planes.length; i++) {
+			marker = new L.marker([planes[i][1],planes[i][2]])
+				.bindPopup(planes[i][0])
+				.addTo(map);
+		}
+               
     </script>
 </body>
 </html>
